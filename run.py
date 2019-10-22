@@ -51,21 +51,21 @@ def auction_list_parser():
             content_exists = False
     return result
     
-# main
-auction_urls = auction_list_parser()
-print(f'Found {len(list(itertools.chain(*auction_urls)))} auctions')
+if __name__ == '__main__':
+    auction_urls = len(list(itertools.chain(*auction_list_parser())))
+    print(f'Found {auction_urls} auctions')
 
 
-result = []
-for i in list(itertools.chain(*auction_urls)):
-    auction_url = base_url + i.find('a')['href']
-    for auction_object in auction_parser(auction_url):
-        result.append(pd.DataFrame.from_dict(auction_object, orient='index').T)
+    result = []
+    for i in list(itertools.chain(*auction_urls)):
+        auction_url = base_url + i.find('a')['href']
+        for auction_object in auction_parser(auction_url):
+            result.append(pd.DataFrame.from_dict(auction_object, orient='index').T)
 
-if result:
-    final = pd.concat(result)
+    if result:    
+        final = pd.concat(result)
 
-final['Bendras plotas:'] = final['Bendras plotas:'].apply(lambda x: str(x).translate(escapes).replace('\n', '').replace('\r', ''))
-final['Užstatytas plotas:'] = final['Užstatytas plotas:'].apply(lambda x: str(x).translate(escapes).replace('\n', '').replace('\r', ''))
+        final['Bendras plotas:'] = final['Bendras plotas:'].apply(lambda x: str(x).translate(escapes).replace('\n', '').replace('\r', ''))
+        final['Užstatytas plotas:'] = final['Užstatytas plotas:'].apply(lambda x: str(x).translate(escapes).replace('\n', '').replace('\r', ''))
 
-final.to_excel('evarzytines.xlsx', index=False)
+        final.to_excel('evarzytines.xlsx', index=False)
