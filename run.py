@@ -37,7 +37,7 @@ def auction_list_parser():
     page_id = 0
 
     while content_exists:
-        url = f'https://www.evarzytynes.lt/evs/pages/auctions.do?estateType=1&estateSubtype=1&stateType=PASKELBTA-IR-VYKSTA&page={page_id}'
+        url = f'{base_url}/evs/pages/auctions.do?estateType=1&estateSubtype=1&stateType=PASKELBTA-IR-VYKSTA&page={page_id}'
         page = urlopen(url)
         soup = BeautifulSoup(page, 'html.parser')
 
