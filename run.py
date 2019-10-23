@@ -69,3 +69,71 @@ if __name__ == '__main__':
         final['Užstatytas plotas:'] = final['Užstatytas plotas:'].apply(lambda x: str(x).translate(escapes).replace('\n', '').replace('\r', ''))
 
         final.to_excel('evarzytines.xlsx', index=False)
+
+        
+        
+        
+        
+        
+        
+        
+          
+        
+# final['Pradinė pardavimo kaina, Eur:'] = (final['Pradinė pardavimo kaina:']
+#                                      .apply(lambda x: float(''.join(c for c in x if c.isdigit())
+#                                                            )
+#                                            )
+#                                     )
+
+
+
+# def parsed_area(x):
+#     result = (''.join(c for c in x.split('a.')[0] if c.isdigit()))
+#     if result:
+#         return float(result)
+#     return None
+
+# final['Bendras plotas (a):'] = (final['Bendras plotas:']
+#                                      .apply(lambda x: parsed_area(x)
+#                                            )
+#                                     )
+
+
+
+
+
+# final['Vieno aro pradine kaina, Eur:'] = final['Pradinė pardavimo kaina:'] / final['Bendras plotas (a):']
+
+
+
+# (final[(final['Turto potipis:'] == 'Sklypai') &
+#      (final['Parduodama turto dalis:'] == '1/1') &
+#       (final['Vieno aro pradine kaina, Eur:'] < 15) & 
+#       (final['Bendras plotas (a):'] > 15)]
+#  .sort_values('Vieno aro pradine kaina, Eur:')
+# [['Vieno aro pradine kaina, Eur:',
+#   'Bendras plotas:',
+#   'Adresas:', 
+#  'Pradinė pardavimo kaina:',
+#   'Pabaigos data:',
+#   'Būsena:',
+#        'Dalyvio mokestis:',
+#   'Dalyvio registracijos tvirtinimo trukmė d. d.:',
+#        'Garantinis įnašas:',
+#   'Interneto nuoroda:', 
+#   'Kadastrinis Nr.:',
+#        'Kambarių/patalpų skaičius:', 
+#    'Aprašymas:',
+#   'Pagrindas',
+#        'Parduodama turto dalis:',
+#        'Pradinė NT pardavimo kaina iš bendros pradinės pardavimo kainos:',
+       
+#        'Pradinė žemės sklypo pardavimo kaina iš bendros pradinės pardavimo kainos:',
+#        'Pradinė žemės sklypo vertė žemės sklypo mokesčiui apskaičiuoti:',
+#        'Pradžios data:', 'Registracijos pabaiga:', 'Registracijos pradžia:',
+#        'Registravimo mokestis:', 'Savininkai:', 'Sklypas:', 'Tipas:',
+#        'Turtas PVM objektas:', 'Turto nuosavybės apribojimai:',
+#        'Turto potipis:', 'Turto sąrašas:', 'Unikalus Nr.:',
+#        'Užstatytas plotas:', 'url', 'Bendras plotas (a):'
+#        ]]
+# )
